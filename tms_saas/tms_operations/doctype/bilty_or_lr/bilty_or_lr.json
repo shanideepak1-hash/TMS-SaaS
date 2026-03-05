@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-05 17:29:02.781119",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "bilty_details_section",
+  "trip",
+  "consignor",
+  "no_of_packages",
+  "material_description",
+  "upload_bilty",
+  "column_break_rcci",
+  "client",
+  "consignee",
+  "weight",
+  "eway_bill_no"
+ ],
+ "fields": [
+  {
+   "fieldname": "bilty_details_section",
+   "fieldtype": "Section Break",
+   "label": "Bilty Details"
+  },
+  {
+   "fieldname": "trip",
+   "fieldtype": "Link",
+   "label": "Trip",
+   "options": "Trip"
+  },
+  {
+   "fieldname": "column_break_rcci",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Transport Client"
+  },
+  {
+   "fieldname": "consignor",
+   "fieldtype": "Data",
+   "label": "Consignor"
+  },
+  {
+   "fieldname": "no_of_packages",
+   "fieldtype": "Int",
+   "label": "No of Packages"
+  },
+  {
+   "fieldname": "material_description",
+   "fieldtype": "Data",
+   "label": "Material Description"
+  },
+  {
+   "fieldname": "upload_bilty",
+   "fieldtype": "Attach",
+   "label": "Upload Bilty"
+  },
+  {
+   "fieldname": "consignee",
+   "fieldtype": "Data",
+   "label": "Consignee"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight KG"
+  },
+  {
+   "fieldname": "eway_bill_no",
+   "fieldtype": "Data",
+   "label": "E-Way Bill No"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-05 17:44:51.957642",
+ "modified_by": "Administrator",
+ "module": "TMS Operations",
+ "name": "Bilty Or LR",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

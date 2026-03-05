@@ -1,0 +1,368 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "TRIP.MM.YY.####",
+ "creation": "2026-03-03 19:57:40.636291",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "trip_etails",
+  "customer",
+  "contract",
+  "vehicle",
+  "from",
+  "trip_start_date",
+  "route",
+  "allow_reassignment",
+  "reassignment_reason",
+  "column_break_aamz",
+  "client",
+  "driver",
+  "to",
+  "trip_end_date",
+  "daily_trip_log",
+  "tracking_section",
+  "trip_status",
+  "current_location",
+  "last_updated_by",
+  "column_break_gqmy",
+  "vehicle_status",
+  "last_update_time",
+  "billing_section",
+  "freight_amount",
+  "billing_basis",
+  "column_break_ponb",
+  "due_balance",
+  "payment_status",
+  "advance_payment_tab",
+  "company_advance_received",
+  "trip_advance_total",
+  "column_break_mtme",
+  "total_advance_driver",
+  "advance_balance",
+  "section_break_svne",
+  "trip_advances",
+  "trip_expenses_tab",
+  "trip_expenses_section",
+  "total_driver_expense",
+  "column_break_alfy",
+  "total_vehicle_expense",
+  "section_break_rvsn",
+  "trip_expenses",
+  "driver_settlement_tab",
+  "driver_settlement_section",
+  "driver_advance",
+  "net_settlement",
+  "create_driver_settlement",
+  "column_break_ccpt",
+  "driver_expense",
+  "settlement_status",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "trip_etails",
+   "fieldtype": "Section Break",
+   "label": "Trip Details"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Customer",
+   "no_copy": 1,
+   "options": "Customer",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "client",
+   "fieldtype": "Link",
+   "label": "Client",
+   "options": "Transport Client"
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Contract",
+   "options": "Contract"
+  },
+  {
+   "fieldname": "vehicle",
+   "fieldtype": "Link",
+   "label": "Vehicle",
+   "options": "TMS Vehicle"
+  },
+  {
+   "fieldname": "driver",
+   "fieldtype": "Link",
+   "label": "Driver",
+   "options": "TMS Driver"
+  },
+  {
+   "fieldname": "from",
+   "fieldtype": "Data",
+   "label": "From"
+  },
+  {
+   "fieldname": "trip_start_date",
+   "fieldtype": "Date",
+   "label": "Trip Start Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_reassignment",
+   "fieldtype": "Check",
+   "label": "Allow Reassignment"
+  },
+  {
+   "fieldname": "reassignment_reason",
+   "fieldtype": "Small Text",
+   "label": "Reassignment Reason"
+  },
+  {
+   "fieldname": "column_break_aamz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "TMS Route"
+  },
+  {
+   "fieldname": "to",
+   "fieldtype": "Data",
+   "label": "To"
+  },
+  {
+   "fieldname": "trip_end_date",
+   "fieldtype": "Date",
+   "label": "Trip End Date"
+  },
+  {
+   "fieldname": "tracking_section",
+   "fieldtype": "Section Break",
+   "label": "Tracking"
+  },
+  {
+   "fieldname": "trip_status",
+   "fieldtype": "Select",
+   "label": "Trip Status",
+   "options": "Planned\nAt Loading Point\nLoaded\nOn the Way\nUnloading\nDelivered\nEmpty\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location"
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Read Only",
+   "label": "Last Updated By"
+  },
+  {
+   "fieldname": "column_break_gqmy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vehicle_status",
+   "fieldtype": "Select",
+   "label": "Vehicle Status",
+   "options": "Running\nStopped\nIdle\nBreakdown\nMaintenance"
+  },
+  {
+   "fieldname": "last_update_time",
+   "fieldtype": "Datetime",
+   "label": "Last Update Time"
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "Billing"
+  },
+  {
+   "fieldname": "freight_amount",
+   "fieldtype": "Currency",
+   "label": "Freight Amount"
+  },
+  {
+   "fieldname": "billing_basis",
+   "fieldtype": "Select",
+   "label": "Billing Status",
+   "options": "Not Billed\nBilled"
+  },
+  {
+   "fieldname": "column_break_ponb",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "due_balance",
+   "fieldtype": "Currency",
+   "label": "Due Balance"
+  },
+  {
+   "fieldname": "payment_status",
+   "fieldtype": "Select",
+   "label": "Payment Status",
+   "options": "Unpaid\nPartially Paid\nPaid\nOverpaid"
+  },
+  {
+   "fieldname": "advance_payment_tab",
+   "fieldtype": "Tab Break",
+   "label": "Advance Payment"
+  },
+  {
+   "fieldname": "company_advance_received",
+   "fieldtype": "Currency",
+   "label": "Company Advance Received"
+  },
+  {
+   "fieldname": "trip_advance_total",
+   "fieldtype": "Currency",
+   "label": "Trip Advance Total"
+  },
+  {
+   "fieldname": "column_break_mtme",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_advance_driver",
+   "fieldtype": "Currency",
+   "label": "Total Advance Given to Driver"
+  },
+  {
+   "fieldname": "advance_balance",
+   "fieldtype": "Currency",
+   "label": "Advance Balance"
+  },
+  {
+   "fieldname": "trip_expenses_tab",
+   "fieldtype": "Tab Break",
+   "label": "Trip Expenses"
+  },
+  {
+   "fieldname": "trip_expenses_section",
+   "fieldtype": "Section Break",
+   "label": "Trip Expenses"
+  },
+  {
+   "fieldname": "total_driver_expense",
+   "fieldtype": "Currency",
+   "label": "Total Driver Expense"
+  },
+  {
+   "fieldname": "column_break_alfy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "total_vehicle_expense",
+   "fieldtype": "Currency",
+   "label": "Total Vehicle Expense"
+  },
+  {
+   "fieldname": "driver_settlement_tab",
+   "fieldtype": "Tab Break",
+   "label": "Driver Settlement"
+  },
+  {
+   "fieldname": "driver_settlement_section",
+   "fieldtype": "Section Break",
+   "label": "Driver Settlement"
+  },
+  {
+   "fieldname": "driver_advance",
+   "fieldtype": "Currency",
+   "label": "Driver Advance"
+  },
+  {
+   "fieldname": "net_settlement",
+   "fieldtype": "Currency",
+   "label": "Net Settlement Amount"
+  },
+  {
+   "bold": 1,
+   "fieldname": "create_driver_settlement",
+   "fieldtype": "Button",
+   "label": "Create Driver Settlement"
+  },
+  {
+   "fieldname": "column_break_ccpt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "driver_expense",
+   "fieldtype": "Currency",
+   "label": "Driver Expense"
+  },
+  {
+   "fieldname": "settlement_status",
+   "fieldtype": "Select",
+   "label": "Settlement Status",
+   "options": "Pending\nSettled"
+  },
+  {
+   "fieldname": "daily_trip_log",
+   "fieldtype": "Table",
+   "label": "Daily Trip Log",
+   "options": "Daily Trip Log"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Trip",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_svne",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "trip_advances",
+   "fieldtype": "Table",
+   "label": "Advance Details",
+   "options": "Trip Advance"
+  },
+  {
+   "fieldname": "section_break_rvsn",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "trip_expenses",
+   "fieldtype": "Table",
+   "label": "Trip Expense Details",
+   "options": "Trip Expense"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-05 19:36:07.425315",
+ "modified_by": "Administrator",
+ "module": "TMS Operations",
+ "name": "Trip",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

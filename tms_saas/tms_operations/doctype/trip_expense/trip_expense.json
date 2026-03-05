@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-05 17:15:02.035852",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "trip_expense_section",
+  "expense_date",
+  "expense_head",
+  "paid_by",
+  "bill_available",
+  "attach_bill",
+  "column_break_kuyl",
+  "amount",
+  "expense_category",
+  "payment_mode",
+  "proof",
+  "section_break_cvfj",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "trip_expense_section",
+   "fieldtype": "Section Break",
+   "label": "TRIP EXPENSE"
+  },
+  {
+   "fieldname": "expense_date",
+   "fieldtype": "Date",
+   "label": "Expense Date"
+  },
+  {
+   "fieldname": "expense_head",
+   "fieldtype": "Currency",
+   "label": "Expense Head",
+   "options": "Fuel\nToll\nRepair\nFood\nParking\nOther"
+  },
+  {
+   "fieldname": "paid_by",
+   "fieldtype": "Select",
+   "label": "Paid By",
+   "options": "Driver\nCompany"
+  },
+  {
+   "fieldname": "column_break_kuyl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "expense_category",
+   "fieldtype": "Select",
+   "label": "Expense Category",
+   "options": "Driver\nVehicle"
+  },
+  {
+   "fieldname": "payment_mode",
+   "fieldtype": "Select",
+   "label": "Payment Mode",
+   "options": "Cash\nCard\nUPI\nOnline"
+  },
+  {
+   "default": "0",
+   "fieldname": "bill_available",
+   "fieldtype": "Check",
+   "label": "Bill Available"
+  },
+  {
+   "fieldname": "attach_bill",
+   "fieldtype": "Attach",
+   "label": "Attach Bill"
+  },
+  {
+   "fieldname": "proof",
+   "fieldtype": "Attach",
+   "label": "Proof"
+  },
+  {
+   "fieldname": "section_break_cvfj",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-05 17:21:06.221526",
+ "modified_by": "Administrator",
+ "module": "TMS Operations",
+ "name": "Trip Expense",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

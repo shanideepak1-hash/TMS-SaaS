@@ -1,0 +1,81 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-05 17:48:08.981570",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "route_details_section",
+  "route_code",
+  "from_city",
+  "to_city",
+  "distance_km",
+  "route_type",
+  "active"
+ ],
+ "fields": [
+  {
+   "fieldname": "route_details_section",
+   "fieldtype": "Section Break",
+   "label": "Route Details"
+  },
+  {
+   "fieldname": "route_code",
+   "fieldtype": "Data",
+   "label": "Route Code"
+  },
+  {
+   "fieldname": "from_city",
+   "fieldtype": "Link",
+   "label": "From Location",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "to_city",
+   "fieldtype": "Link",
+   "label": "To Location",
+   "options": "City Master"
+  },
+  {
+   "fieldname": "distance_km",
+   "fieldtype": "Float",
+   "label": "Distance (KM)"
+  },
+  {
+   "fieldname": "route_type",
+   "fieldtype": "Select",
+   "label": "Route Type",
+   "options": "One Way\nRound Trip"
+  },
+  {
+   "default": "0",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "label": "Active"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-05 17:52:33.048808",
+ "modified_by": "Administrator",
+ "module": "TMS Masters",
+ "name": "TMS Route",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

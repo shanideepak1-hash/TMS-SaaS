@@ -1,0 +1,92 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-05 17:22:03.288737",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "log_details_section",
+  "log_date",
+  "trip_status",
+  "distance_covered",
+  "column_break_euta",
+  "location",
+  "vehicle_status",
+  "odometer_reading",
+  "updated_by",
+  "section_break_enye",
+  "driver_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "log_details_section",
+   "fieldtype": "Section Break",
+   "label": "Log Details"
+  },
+  {
+   "fieldname": "log_date",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Log Date and Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "trip_status",
+   "fieldtype": "Select",
+   "label": "Trip Status",
+   "options": "Planned\nAt Loading Point\nLoaded\nOn the Way\nUnloading\nDelivered\nEmpty\nCompleted\nCancelled"
+  },
+  {
+   "fieldname": "distance_covered",
+   "fieldtype": "Float",
+   "label": "Distance Covered KM"
+  },
+  {
+   "fieldname": "column_break_euta",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Data",
+   "label": "Location"
+  },
+  {
+   "fieldname": "vehicle_status",
+   "fieldtype": "Select",
+   "label": "Vehicle Status",
+   "options": "Running\nStopped\nIdle\nBreakdown\nMaintenance"
+  },
+  {
+   "fieldname": "odometer_reading",
+   "fieldtype": "Float",
+   "label": "Odometer Reading"
+  },
+  {
+   "fieldname": "updated_by",
+   "fieldtype": "Read Only",
+   "label": "Updated By"
+  },
+  {
+   "fieldname": "section_break_enye",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "driver_remarks",
+   "fieldtype": "Small Text",
+   "label": "Driver Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-05 17:27:22.579066",
+ "modified_by": "Administrator",
+ "module": "TMS Operations",
+ "name": "Daily Trip Log",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

@@ -1,0 +1,67 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-05 18:03:23.586414",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "rate_type",
+  "vehicle_type",
+  "base_rate",
+  "extra_km_rate",
+  "waiting_charge"
+ ],
+ "fields": [
+  {
+   "fieldname": "rate_type",
+   "fieldtype": "Select",
+   "label": "Rate Type",
+   "options": "Per KM\nPer Trip\nHire"
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "Truck\nLCV\nTrailer"
+  },
+  {
+   "fieldname": "base_rate",
+   "fieldtype": "Currency",
+   "label": "Base Rate"
+  },
+  {
+   "fieldname": "extra_km_rate",
+   "fieldtype": "Currency",
+   "label": "Extra KM Rate"
+  },
+  {
+   "fieldname": "waiting_charge",
+   "fieldtype": "Currency",
+   "label": "Waiting Charge"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-05 18:05:33.994946",
+ "modified_by": "Administrator",
+ "module": "TMS Contracts",
+ "name": "RATE CARD",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

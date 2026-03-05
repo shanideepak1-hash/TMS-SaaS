@@ -1,0 +1,257 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:vehicle_number",
+ "creation": "2026-03-03 19:53:08.883270",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vehicle_detail_section",
+  "vehicle_number",
+  "vehicle_type",
+  "registration_date",
+  "fitness",
+  "insurance",
+  "column_break_rhod",
+  "manufacturer",
+  "vehicle_model",
+  "registration_expiry",
+  "fitness_expiry",
+  "insurance_expiry",
+  "operational_status_section",
+  "availability_status",
+  "current_location",
+  "last_updated_by",
+  "last_update_time",
+  "column_break_rjov",
+  "assigned_trip",
+  "assigned_driver",
+  "operational_status",
+  "status_change_reason",
+  "capacity_and_costing_section",
+  "max_load",
+  "avg_mileage",
+  "column_break_ncfr",
+  "fuel_type",
+  "def_required",
+  "vehicle_document_tab",
+  "vehicle_documents_section",
+  "rc_book",
+  "insurance_copy",
+  "column_break_tbhh",
+  "fitness_certificate",
+  "permit_copy"
+ ],
+ "fields": [
+  {
+   "fieldname": "vehicle_detail_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Detail"
+  },
+  {
+   "bold": 1,
+   "fieldname": "vehicle_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Vehicle Number",
+   "unique": 1
+  },
+  {
+   "fieldname": "vehicle_type",
+   "fieldtype": "Select",
+   "label": "Vehicle Type",
+   "options": "Truck\nLCV\nTrailer\nContainer\nTanker\nCar"
+  },
+  {
+   "fieldname": "registration_date",
+   "fieldtype": "Date",
+   "label": "Registration Date"
+  },
+  {
+   "fieldname": "column_break_rhod",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "manufacturer",
+   "fieldtype": "Data",
+   "label": "Manufacturer"
+  },
+  {
+   "fieldname": "vehicle_model",
+   "fieldtype": "Data",
+   "label": "Vehicle Model"
+  },
+  {
+   "fieldname": "fitness_expiry",
+   "fieldtype": "Date",
+   "label": "Fitness Expiry"
+  },
+  {
+   "fieldname": "insurance_expiry",
+   "fieldtype": "Date",
+   "label": "Insurance Expiry"
+  },
+  {
+   "fieldname": "registration_expiry",
+   "fieldtype": "Date",
+   "label": "Registration Expiry"
+  },
+  {
+   "fieldname": "fitness",
+   "fieldtype": "Date",
+   "label": "Fitness"
+  },
+  {
+   "fieldname": "insurance",
+   "fieldtype": "Date",
+   "label": "Insurance"
+  },
+  {
+   "fieldname": "operational_status_section",
+   "fieldtype": "Section Break",
+   "label": "Operational Status"
+  },
+  {
+   "bold": 1,
+   "fieldname": "availability_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Availability Status",
+   "options": "Available\nAssigned\nUnavailable"
+  },
+  {
+   "fieldname": "column_break_rjov",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_trip",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Assigned Trip",
+   "options": "Trip",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_location",
+   "fieldtype": "Data",
+   "label": "Current Location"
+  },
+  {
+   "fieldname": "last_updated_by",
+   "fieldtype": "Read Only",
+   "label": "Last Updated By"
+  },
+  {
+   "fieldname": "assigned_driver",
+   "fieldtype": "Link",
+   "label": "Assigned Driver",
+   "options": "TMS Driver"
+  },
+  {
+   "fieldname": "operational_status",
+   "fieldtype": "Select",
+   "label": "Operational Status",
+   "options": "Running\nIdle\nBreakdown\nMaintenance"
+  },
+  {
+   "fieldname": "last_update_time",
+   "fieldtype": "Datetime",
+   "label": "Last Update Time"
+  },
+  {
+   "fieldname": "status_change_reason",
+   "fieldtype": "Small Text",
+   "label": "Status Change Reason"
+  },
+  {
+   "fieldname": "capacity_and_costing_section",
+   "fieldtype": "Section Break",
+   "label": "Capacity And Costing"
+  },
+  {
+   "fieldname": "max_load",
+   "fieldtype": "Float",
+   "label": "Max Load (MT)"
+  },
+  {
+   "fieldname": "avg_mileage",
+   "fieldtype": "Float",
+   "label": "Avg Mileage (KM/L)"
+  },
+  {
+   "fieldname": "column_break_ncfr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "fuel_type",
+   "fieldtype": "Select",
+   "label": "Fuel Type",
+   "options": "Petrol\nDiesel\nCNG\nElectric"
+  },
+  {
+   "default": "0",
+   "fieldname": "def_required",
+   "fieldtype": "Check",
+   "label": "DEF Required"
+  },
+  {
+   "fieldname": "vehicle_document_tab",
+   "fieldtype": "Tab Break",
+   "label": "Vehicle Document"
+  },
+  {
+   "fieldname": "vehicle_documents_section",
+   "fieldtype": "Section Break",
+   "label": "Vehicle Documents"
+  },
+  {
+   "fieldname": "rc_book",
+   "fieldtype": "Attach",
+   "label": "RC Book"
+  },
+  {
+   "fieldname": "insurance_copy",
+   "fieldtype": "Attach",
+   "label": "Insurance Copy"
+  },
+  {
+   "fieldname": "fitness_certificate",
+   "fieldtype": "Attach",
+   "label": "Fitness Certificate"
+  },
+  {
+   "fieldname": "permit_copy",
+   "fieldtype": "Attach",
+   "label": "Permit Copy"
+  },
+  {
+   "fieldname": "column_break_tbhh",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-05 19:31:36.307929",
+ "modified_by": "Administrator",
+ "module": "TMS Fleet",
+ "name": "TMS Vehicle",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

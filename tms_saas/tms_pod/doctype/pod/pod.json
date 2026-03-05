@@ -1,0 +1,85 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-05 18:44:47.510533",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "proof_off_delivery_section",
+  "trip",
+  "pod_date",
+  "receiver_name",
+  "uploaded_by",
+  "column_break_tfxr",
+  "bilty",
+  "pod_upload"
+ ],
+ "fields": [
+  {
+   "fieldname": "proof_off_delivery_section",
+   "fieldtype": "Section Break",
+   "label": "Proof Off Delivery"
+  },
+  {
+   "fieldname": "trip",
+   "fieldtype": "Link",
+   "label": "Trip",
+   "options": "Trip"
+  },
+  {
+   "fieldname": "column_break_tfxr",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bilty",
+   "fieldtype": "Link",
+   "label": "Bilty",
+   "options": "Bilty Or LR"
+  },
+  {
+   "fieldname": "pod_date",
+   "fieldtype": "Date",
+   "label": "POD Date"
+  },
+  {
+   "fieldname": "receiver_name",
+   "fieldtype": "Data",
+   "label": "Receiver Name"
+  },
+  {
+   "fieldname": "uploaded_by",
+   "fieldtype": "Link",
+   "label": "Uploaded By",
+   "options": "User"
+  },
+  {
+   "fieldname": "pod_upload",
+   "fieldtype": "Attach",
+   "label": "POD Upload"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-03-05 18:49:20.360773",
+ "modified_by": "Administrator",
+ "module": "TMS POD",
+ "name": "POD",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

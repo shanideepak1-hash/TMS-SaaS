@@ -1,0 +1,60 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-05 17:56:28.501185",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "route_rate_section",
+  "route",
+  "extra_km_rate",
+  "column_break_ocuy",
+  "rate",
+  "night_charge"
+ ],
+ "fields": [
+  {
+   "fieldname": "route_rate_section",
+   "fieldtype": "Section Break",
+   "label": "Route Rate"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Link",
+   "label": "Route",
+   "options": "TMS Route"
+  },
+  {
+   "fieldname": "extra_km_rate",
+   "fieldtype": "Currency",
+   "label": "Extra KM Rate"
+  },
+  {
+   "fieldname": "column_break_ocuy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "rate",
+   "fieldtype": "Currency",
+   "label": "Rate"
+  },
+  {
+   "fieldname": "night_charge",
+   "fieldtype": "Currency",
+   "label": "Night Charge"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-05 18:21:50.625457",
+ "modified_by": "Administrator",
+ "module": "TMS Contracts",
+ "name": "ROUTE RATE ITEM",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
