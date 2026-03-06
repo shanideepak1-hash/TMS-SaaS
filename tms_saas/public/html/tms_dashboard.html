@@ -1,0 +1,108 @@
+<div class="tms-bg">
+
+<div class="tms-header">
+
+<div>
+<h2 class="title">Transport Management System</h2>
+<div class="subtitle">Live Operations Dashboard</div>
+</div>
+
+<div class="userbox">
+<div id="tms_company"></div>
+<div id="tms_user"></div>
+<div id="tms_time"></div>
+</div>
+
+</div>
+
+<div class="road">
+<div class="truck">🚛</div>
+</div>
+
+<div class="cards">
+
+<div class="card">
+<div>Total Trips</div>
+<b id="total_trips">0</b>
+</div>
+
+<div class="card">
+<div>Vehicles</div>
+<b id="vehicles">0</b>
+</div>
+
+<div class="card">
+<div>Drivers</div>
+<b id="drivers">0</b>
+</div>
+
+<div class="card">
+<div>Pending Billing</div>
+<b id="pending_billing">0</b>
+</div>
+
+</div>
+
+<div class="status">
+
+Running <b id="running_trips">0</b> |
+
+Completed <b id="completed_trips">0</b> |
+
+Planned <b id="planned_trips">0</b>
+
+</div>
+
+<div class="panels">
+
+<div class="panel clickable" data-route="TMS Driver">
+
+<h3>Driver Status</h3>
+
+Available <b id="drivers_available">0</b><br>
+On Trip <b id="drivers_on_trip">0</b><br>
+On Leave <b id="drivers_leave">0</b>
+
+</div>
+
+<div class="panel clickable" data-route="TMS Vehicle">
+
+<h3>Vehicle Status</h3>
+
+On Trip <b id="vehicles_on_trip">0</b><br>
+Empty <b id="vehicles_empty">0</b><br>
+Maintenance <b id="vehicles_maintenance">0</b>
+
+</div>
+
+</div>
+
+<div class="panel latest-trips">
+
+<h3>Latest Trips</h3>
+
+<table>
+
+<thead>
+<tr>
+<th>Trip</th>
+<th>Vehicle</th>
+<th>Driver</th>
+<th>From</th>
+<th>To</th>
+<th>Current Location</th>
+<th>Status</th>
+</tr>
+</thead>
+
+<tbody id="trip_rows"></tbody>
+
+</table>
+
+</div>
+
+<div class="footer">
+Powered by <b>Noxshield</b>
+</div>
+
+</div>

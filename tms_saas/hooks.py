@@ -10,6 +10,12 @@ fixtures = [
     "Property Setter",
     "Client Script"
 ]
+app_include_css = "/assets/tms_saas/css/tms_dashboard.css"
+
+app_include_js = "/assets/tms_saas/js/tms_dashboard.js"
+app_include_css = "/assets/tms_saas/css/tms_dashboard.css"
+
+app_include_html = "/assets/tms_saas/js/tms_dashboard.html"
 # Apps
 # ------------------
 
