@@ -4,7 +4,12 @@ app_publisher = "DDTech Ecoventures Pvt Ltd Powered by Noxshield"
 app_description = "Transport Management System SaaS"
 app_email = "info@ddtechecoventures.com"
 app_license = "mit"
-
+fixtures = [
+    "Workspace",
+    "Custom Field",
+    "Property Setter",
+    "Client Script"
+]
 # Apps
 # ------------------
 

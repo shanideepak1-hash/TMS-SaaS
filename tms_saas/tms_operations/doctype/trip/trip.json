@@ -8,11 +8,11 @@
  "field_order": [
   "trip_etails",
   "customer",
-  "contract",
   "vehicle",
   "from",
   "trip_start_date",
   "route",
+  "contract",
   "allow_reassignment",
   "reassignment_reason",
   "column_break_aamz",
@@ -69,10 +69,7 @@
    "fieldname": "customer",
    "fieldtype": "Link",
    "label": "Customer",
-   "no_copy": 1,
    "options": "Customer",
-   "print_hide": 1,
-   "read_only": 1,
    "search_index": 1
   },
   {
@@ -341,7 +338,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-05 19:36:07.425315",
+ "modified": "2026-03-06 19:55:04.545357",
  "modified_by": "Administrator",
  "module": "TMS Operations",
  "name": "Trip",

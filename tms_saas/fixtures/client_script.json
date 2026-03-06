@@ -1,0 +1,57 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "TRIP",
+  "enabled": 1,
+  "modified": "2025-12-17 18:42:39.868326",
+  "module": null,
+  "name": "HANDLE EXCEPTION OR MISS-HAPPENING (CHANGE VEHICLE OR DRIVER)",
+  "script": "frappe.ui.form.on(\"Trip\", {\r\n    validate(frm) {\r\n        if (\r\n            frm.doc.allow_reassignment &&\r\n            (!frm.doc.reassignment_reason || frm.doc.reassignment_reason.length < 10)\r\n        ) {\r\n            frappe.throw(\"Please provide a valid reason for reassignment\");\r\n        }\r\n    }\r\n});\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "TRIP",
+  "enabled": 1,
+  "modified": "2025-12-20 18:34:52.269056",
+  "module": null,
+  "name": "AUTO PICK DRIVER FROM VEHICLE",
+  "script": "frappe.ui.form.on(\"TRIP\", {\r\n    vehicle(frm) {\r\n\r\n        if (!frm.doc.vehicle) {\r\n            frm.set_value(\"driver\", null);\r\n            frm.set_df_property(\"driver\", \"read_only\", 0);\r\n            return;\r\n        }\r\n\r\n        frappe.db.get_value(\r\n            \"TMS VEHICLE\",\r\n            frm.doc.vehicle,\r\n            \"assigned_driver\"\r\n        ).then(r => {\r\n\r\n            if (r.message && r.message.assigned_driver) {\r\n                frm.set_value(\"driver\", r.message.assigned_driver);\r\n                frm.set_df_property(\"driver\", \"read_only\", 1);\r\n            } else {\r\n                frm.set_df_property(\"driver\", \"read_only\", 0);\r\n            }\r\n        });\r\n    }\r\n});\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "BILLING BATCH",
+  "enabled": 0,
+  "modified": "2025-12-20 19:18:10.718326",
+  "module": null,
+  "name": "FETCH COMPLETED TRIPS INTO BILLING BATCH",
+  "script": "frappe.ui.form.on(\"BILLING BATCH\", {\r\n    get_trips(frm) {\r\n\r\n        if (!frm.doc.customer) {\r\n            frappe.msgprint(\"Please select Customer first\");\r\n            return;\r\n        }\r\n\r\n        frappe.call({\r\n            method: \"frappe.client.get_list\",\r\n            args: {\r\n                doctype: \"TRIP\",\r\n                filters: {\r\n                    customer: frm.doc.customer,\r\n                    trip_status: \"Completed\",\r\n                    billing_status: \"Not Billed\"\r\n                },\r\n                fields: [\"name\", \"freight_amount\"]\r\n            },\r\n            callback(r) {\r\n\r\n                frm.clear_table(\"billing_batch_trip\");\r\n\r\n                r.message.forEach(t => {\r\n                    let row = frm.add_child(\"billing_batch_trip\");\r\n                    row.trip_billing = t.name;\r\n                    row.freight_amount = t.freight_amount || 0;\r\n                    row.other_charges = 0;\r\n                    row.total = t.freight_amount || 0;\r\n                });\r\n\r\n                frm.refresh_field(\"billing_batch_trip\");\r\n            }\r\n        });\r\n    }\r\n});\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "Billing Batch Trip",
+  "enabled": 1,
+  "modified": "2025-12-20 19:21:44.219946",
+  "module": null,
+  "name": "Billing Batch Trip",
+  "script": "frappe.ui.form.on(\"Billing Batch Trip\", {\r\n    freight_amount(frm, cdt, cdn) {\r\n        calculate_total(cdt, cdn);\r\n    },\r\n    other_charges(frm, cdt, cdn) {\r\n        calculate_total(cdt, cdn);\r\n    }\r\n});\r\n\r\nfunction calculate_total(cdt, cdn) {\r\n    let row = locals[cdt][cdn];\r\n    row.total = (row.freight_amount || 0) + (row.other_charges || 0);\r\n}\r\n",
+  "view": "Form"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Client Script",
+  "dt": "TRIP",
+  "enabled": 1,
+  "modified": "2025-12-22 19:29:49.279998",
+  "module": null,
+  "name": "AUTO CALCULATIONS Advance and Driver expence",
+  "script": "frappe.ui.form.on('TRIP', {\r\n    refresh(frm) {\r\n        calculate_advances(frm);\r\n        calculate_expenses(frm);\r\n        calculate_settlement(frm);\r\n    },\r\n\r\n    trip_advances_add: function(frm) {\r\n        calculate_advances(frm);\r\n        calculate_settlement(frm);\r\n    },\r\n    trip_advances_remove: function(frm) {\r\n        calculate_advances(frm);\r\n        calculate_settlement(frm);\r\n    },\r\n\r\n    trip_expenses_add: function(frm) {\r\n        calculate_expenses(frm);\r\n        calculate_settlement(frm);\r\n    },\r\n    trip_expenses_remove: function(frm) {\r\n        calculate_expenses(frm);\r\n        calculate_settlement(frm);\r\n    }\r\n});\r\n\r\n// 🔹 ADVANCE + BILLING LOGIC (FINAL)\r\nfunction calculate_advances(frm) {\r\n    let trip_advance = 0;      // reduces freight\r\n    let company_received = 0;  // accounting\r\n    let driver_received = 0;   // settlement\r\n\r\n    (frm.doc.trip_advances || []).forEach(row => {\r\n        let amt = row.amount || 0;\r\n\r\n        // Any customer/client payment = trip advance\r\n        if ([\"Customer\", \"Client\"].includes(row.paid_by)) {\r\n            trip_advance += amt;\r\n        }\r\n\r\n        // Company cash actually received\r\n        if (row.received_by === \"Company\") {\r\n            company_received += amt;\r\n        }\r\n\r\n        // Driver received money (company or customer)\r\n        if (row.received_by === \"Driver\") {\r\n            driver_received += amt;\r\n        }\r\n    });\r\n\r\n    frm.set_value(\"trip_advance_total\", trip_advance);\r\n    frm.set_value(\"company_advance_received\", company_received);\r\n    frm.set_value(\"driver_advance\", driver_received);\r\n\r\n    let freight = frm.doc.freight_amount || 0;\r\n    let due = freight - trip_advance;\r\n\r\n    frm.set_value(\"due_balance\", due);\r\n\r\n    // Payment status\r\n    if (due > 0 && trip_advance === 0) {\r\n        frm.set_value(\"payment_status\", \"Unpaid\");\r\n    } else if (due > 0 && trip_advance > 0) {\r\n        frm.set_value(\"payment_status\", \"Partially Paid\");\r\n    } else if (due === 0) {\r\n        frm.set_value(\"payment_status\", \"Paid\");\r\n    } else if (due < 0) {\r\n        frm.set_value(\"payment_status\", \"Overpaid\");\r\n    }\r\n}\r\n\r\n// 🔹 EXPENSE LOGIC (UNCHANGED, CORRECT)\r\nfunction calculate_expenses(frm) {\r\n    let driver_exp = 0;\r\n    let vehicle_exp = 0;\r\n\r\n    (frm.doc.trip_expenses || []).forEach(row => {\r\n        if (row.expense_category === \"Driver\") {\r\n            driver_exp += row.amount || 0;\r\n        }\r\n        if (row.expense_category === \"Vehicle\") {\r\n            vehicle_exp += row.amount || 0;\r\n        }\r\n    });\r\n\r\n    frm.set_value(\"total_driver_expense\", driver_exp);\r\n    frm.set_value(\"total_vehicle_expense\", vehicle_exp);\r\n    frm.set_value(\"driver_expense\", driver_exp);\r\n}\r\n\r\n// 🔹 DRIVER SETTLEMENT (FINAL)\r\nfunction calculate_settlement(frm) {\r\n    let net = (frm.doc.driver_advance || 0) - (frm.doc.driver_expense || 0);\r\n    frm.set_value(\"net_settlement\", net);\r\n}\r\n",
+  "view": "Form"
+ }
+]
